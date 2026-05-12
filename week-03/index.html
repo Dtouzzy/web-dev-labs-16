@@ -1,1 +1,210 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lab Week 3 — Personal Profile Page</title>
+
+  <!-- 
+       EXTERNAL CSS — linked from style.css
+       Covers: background color, typography,
+       class/ID/element/group/descendant selectors
+   -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- 
+       INTERNAL (DOCUMENT LEVEL) CSS
+       Lab Week 3: Applied via <style> in <head>
+       Covers: nav menu styling, section headings
+  -->
+  <style>
+    /* --- Navigation menu styling (Internal CSS) --- */
+    #navbar {
+      background-color: #5c6774;
+      padding: 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    /* Descendant selector: nav ul */
+    #navbar ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Descendant selector: nav ul li */
+    #navbar ul li {
+      display: inline-block;
+    }
+
+    /* Descendant selector: nav ul li a */
+    #navbar ul li a {
+      display: block;
+      padding: 14px 24px;
+      color: #ebf8ff;
+      text-decoration: none;
+      font-family: 'Georgia', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      transition: background-color 0.2s ease;
+    }
+
+    /* Pseudo-class :hover on nav links */
+    #navbar ul li a:hover {
+      background-color: #1a365d;
+      color: #ffffff;
+    }
+
+    /* --- Section heading styles (Internal CSS) --- */
+    /* Group selector: h2 inside .section */
+    .section h2 {
+      font-size: 1.6rem;
+      border-left: 5px solid #3182ce;
+      padding-left: 14px;
+      margin-bottom: 20px;
+      color: #2c5282;
+    }
+
+    /* Pseudo-class :hover on section cards */
+    .section:hover {
+      box-shadow: 0 4px 20px rgba(49, 130, 206, 0.15);
+      transition: box-shadow 0.3s ease;
+    }
+
+    /* Skill badge styling */
+    .skill-badge {
+      display: inline-block;
+      background-color: #ebf8ff;
+      color: #2b6cb0;
+      border: 1px solid #bee3f8;
+      border-radius: 20px;
+      padding: 3px 12px;
+      font-size: 0.85rem;
+      margin-right: 6px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!--  HEADER  -->
+  <!-- ID selector: #header (styled in style.css) -->
+  <header id="header">
+    <h1>Denisi Sambila</h1>
+    <p>Computer Science Student &nbsp;|&nbsp; Web Developer in Training</p>
+  </header>
+
+  <!--  NAVIGATION  -->
+  <!-- ID selector: #navbar (styled in internal CSS) -->
+  <nav id="navbar">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#routine">Daily Routine</a></li>
+    </ul>
+  </nav>
+
+  <!--  ABOUT SECTION -->
+  <!-- Class selector: .section | ID selector: #about -->
+  <section class="section" id="about">
+    <h2>About us</h2>
+
+    <!-- INLINE CSS (1 of 4): image border color override -->
+    <img
+  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=140&h=140&fit=crop&crop=face"
+  alt="Profile photo group 21"
+  style="border-color: #566778; width: 140px; height: 140px; border-radius: 50%; object-fit: cover;"
+    />
+
+    <p>
+      Hello! we are <strong>Group 21</strong>, a third-year Computer Science student
+      passionate about building clean, accessible, and functional websites. I enjoy
+      problem-solving and turning ideas into real digital experiences.
+    </p>
+
+    <!-- INLINE CSS (2 of 4): highlight a key sentence -->
+    <p style="background-color: #ebf8ff; padding: 10px 14px; border-radius: 6px;">
+      Our goal is to graduate with a strong foundation in both frontend and backend
+      development, and eventually contribute to impactful open-source projects.
+    </p>
+  </section>
+
+  <!--  SKILLS SECTION  -->
+  <!-- Class selector: .section | ID selector: #skills -->
+  <section class="section" id="skills">
+    <h2>Skills</h2>
+    <p>Technologies and tools we are currently learning or have used:</p>
+
+    <!-- Class selector: .skills-list (descendant styling in style.css) -->
+    <ul class="skills-list">
+      <li>
+        <!-- INLINE CSS (3 of 4): icon-like left border on first item -->
+        <span style="color: #3182ce; font-weight: bold;">●</span>
+        <strong>HTML5</strong>
+        <span class="skill-badge">Beginner–Intermediate</span>
+      </li>
+      <li>
+        <span style="color: #3182ce; font-weight: bold;">●</span>
+        <strong>CSS3</strong>
+        <span class="skill-badge">Beginner–Intermediate</span>
+      </li>
+      <li>
+        <span style="color: #3182ce; font-weight: bold;">●</span>
+        <strong>JavaScript</strong>
+        <span class="skill-badge">Beginner</span>
+      </li>
+      <li>
+        <span style="color: #3182ce; font-weight: bold;">●</span>
+        <strong>Python</strong>
+        <span class="skill-badge">Intermediate</span>
+      </li>
+      <li>
+        <span style="color: #3182ce; font-weight: bold;">●</span>
+        <strong>Git &amp; GitHub</strong>
+        <span class="skill-badge">Beginner</span>
+      </li>
+      <li>
+        <span style="color: #3182ce; font-weight: bold;">●</span>
+        <strong>Microsoft Office Suite</strong>
+        <span class="skill-badge">Proficient</span>
+      </li>
+    </ul>
+  </section>
+
+  <!--  DAILY ROUTINE SECTION  -->
+
+  <!-- Class selector: .section | ID selector: #routine -->
+  <section class="section" id="routine">
+    <h2>Daily Routine</h2>
+    <p>A typical weekday during the academic semester:</p>
+
+    <!-- Class selector: .routine-list (descendant styling in style.css) -->
+    <ol class="routine-list">
+      <li>6:00 AM — Wake up and morning exercise (30 min)</li>
+      <li>7:00 AM — Breakfast and review daily goals</li>
+      <li>8:00 AM — Attend morning lectures or study session</li>
+      <li>12:00 PM — Lunch break and short rest</li>
+      <li>1:00 PM — Practical lab sessions or group work</li>
+      <li>4:00 PM — Independent coding practice or assignments</li>
+      <li>6:30 PM — Dinner and personal time</li>
+      <li>8:00 PM — Evening revision and reading</li>
+      <li>10:30 PM — Wind down and prepare for next day</li>
+      <li>11:00 PM — Sleep</li>
+    </ol>
+  </section>
+
+  <!-- FOOTER -->
+  <!-- INLINE CSS (4 of 4): italic footer note -->
+  <footer style="font-style: italic;">
+    &copy; 2025 sambiladev; Lab Week 3 Submission
+  </footer>
+
+</body>
+</html>
