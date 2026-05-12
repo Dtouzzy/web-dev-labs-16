@@ -1,0 +1,98 @@
+/* 
+   EXTERNAL CSS — style.css
+   Lab Week 3: Applied via <link> in <head>
+   Covers: background color, typography
+    */
+
+/* --- Element Selector: body --- */
+body {
+  background-color: #f0f4f8;
+  font-family: 'Georgia', serif;
+  font-size: 16px;
+  color: #242b39;
+  margin: 0;
+  padding: 0;
+}
+
+/* --- Element Selector: p --- */
+p {
+  line-height: 1.8;
+  margin-bottom: 1rem;
+}
+
+/* --- Element Selector: img --- */
+img {
+  border-radius: 8px;
+  display: block;
+  margin: 12px 0;
+}
+
+/* --- Class Selector: .section --- */
+.section {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px 40px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* --- ID Selector: #header --- */
+#header {
+  background-color: #0d0b24;
+  color: #ffffff;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+#header h1 {
+  font-size: 2.4rem;
+  margin: 0 0 8px 0;
+  letter-spacing: 2px;
+}
+
+#header p {
+  font-size: 1.1rem;
+  color: #bee3f8;
+  margin: 0;
+}
+
+/* --- ID Selector: #about --- */
+#about img {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border: 4px solid #1a365d;
+}
+
+/* --- Group Selector: h1, h2, h3 --- */
+h1, h2, h3 {
+  font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif;
+  color: #1a365d;
+}
+
+/* --- Descendant Selector: .skills-list li --- */
+.skills-list li {
+  padding: 8px 0;
+  border-bottom: 1px dashed #cbd5e0;
+  font-size: 0.97rem;
+}
+
+.skills-list li:last-child {
+  border-bottom: none;
+}
+
+/* --- Descendant Selector: .routine-list li --- */
+.routine-list li {
+  padding: 6px 0;
+  color: #4a5568;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 20px;
+  font-size: 0.85rem;
+  color: #718096;
+  margin-top: 10px;
+}
