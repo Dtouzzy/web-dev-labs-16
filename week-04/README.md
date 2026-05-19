@@ -11,17 +11,18 @@ GROUP 21
 | 7    | Erickson Emil Ntangwa        | 31784/T.2023        |
 
 OBJECTIVES
-1.Understand the Box Model — To learn how content, padding, border, and margin work together to control the size and spacing of elements.
 
-2.Apply CSS Positioning — Demonstrating the differences between static, relative, absolute, fixed, and sticky positioning and how each affects page flow.
+1.Understand the Box Model ; To learn how content, padding, border, and margin work together to control the size and spacing of elements.
 
-3.Manipulate Layout Using Float — Use of float and clear properties to create multi-column layouts and control how elements interact with surrounding content.
+2.Apply CSS Positioning ; Demonstrating the differences between static, relative, absolute, fixed, and sticky positioning and how each affects page flow.
 
-4.Build an Integrated Layout — Combining all three CSS concepts into a single functional page without using Flexbox or Grid.
+3.Manipulate Layout Using Float ; Use of float and clear properties to create multi-column layouts and control how elements interact with surrounding content.
 
-5.Expose Layout Errors — Intentionally observe how misapplied CSS concepts such as missing clear or incorrect positioning break the layout.
+4.Build an Integrated Layout ; Combining all three CSS concepts into a single functional page without using Flexbox or Grid.
 
-6.Develop Debugging Skills — Identify and correct visual layout issues through inspection since CSS does not produce error messages.
+5.Expose Layout Errors ; Intentionally observe how misapplied CSS concepts such as missing clear or incorrect positioning break the layout.
+
+6.Develop Debugging Skills ; Identify and correct visual layout issues through inspection since CSS does not produce error messages.
 
 
 Challenges Encountered in CSS Layout Development
