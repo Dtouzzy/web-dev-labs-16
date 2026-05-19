@@ -1,1 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LAB 4 — CSS Layout Control</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
+  <!-- 
+       PART 2 — FIXED HEADER
+       position: fixed → stays visible even while scrolling.
+       Taken out of normal document flow; body has padding-top
+       in CSS to compensate so content isn't hidden behind it.
+        -->
+  <header class="fixed-header">
+    LAB 4 — CSS Layout Control
+  </header>
+
+  <!--  
+       PART 2 — STICKY NAVIGATION BAR
+       position: sticky → scrolls normally until top: 0 is reached,
+       then "sticks" in place until the parent element leaves view.
+        -->
+  <nav class="sticky-nav">
+    <a href="#part1">Box Model</a>
+    <a href="#part2">Positioning</a>
+    <a href="#part3">Float &amp; Clear</a>
+    <a href="#part4">Integrated Layout</a>
+  </nav>
+
+  <main class="page-wrapper">
+
+    <!-- 
+         PART 1 — BOX MODEL
+         Every HTML element is a rectangular box:
+           Content → Padding → Border → Margin
+         The three .box elements below each use different padding
+         values so the visual difference is immediately obvious.
+          -->
+    <section id="part1">
+      <p class="section-label">Part 1</p>
+      <h2 class="section-title">Box Model — Margin, Padding, Border</h2>
+
+      <div class="box-stack">
+
+        <!-- Box 1: small padding (12px) -->
+        <div class="box box-1">
+          <h3>Box One — Small Padding (12px)</h3>
+          <p>
+            This box has <strong>padding: 12px</strong> — notice how the text
+            sits close to the border. The border is the solid blue line;
+            the margin below creates the gap before the next box.
+          </p>
+        </div>
+
+        <!-- Box 2: medium padding (28px) -->
+        <div class="box box-2">
+          <h3>Box Two — Medium Padding (28px)</h3>
+          <p>
+            With <strong>padding: 28px</strong> the content is pushed further
+            inward. The border still wraps the content <em>and</em> the padding.
+            The same margin separates it from the boxes above and below.
+          </p>
+        </div>
+
+        <!-- Box 3: large padding (44px) -->
+        <div class="box box-3">
+          <h3>Box Three — Large Padding (44px)</h3>
+          <p>
+            <strong>padding: 44px</strong> creates a noticeably spacious interior.
+            The outer box is larger even though the content itself is the same size —
+            that's the box model at work: the border grows to accommodate the padding.
+          </p>
+        </div>
+
+      </div><!-- /.box-stack -->
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- 
+         PART 2 — POSITIONING
+         .pos-container → position: relative
+           Establishes a coordinate origin for its children.
+           The element stays in normal flow.
+
+         .pos-label → position: absolute
+           Removed from normal flow and placed at top/right
+           relative to the nearest positioned ancestor
+           (which is .pos-container).
+         -->
+    <section id="part2">
+      <p class="section-label">Part 2</p>
+      <h2 class="section-title">Positioning — Relative &amp; Absolute</h2>
+
+      <div class="pos-container">
+        <!-- Label anchored to top-right corner of the container -->
+        <span class="pos-label">NEW</span>
+
+        <p>
+          This container uses <strong>position: relative</strong>.
+          It stays in the normal document flow, but it now acts as a
+          coordinate reference point for any absolutely-positioned children.
+        </p>
+        <p style="margin-top:12px;">
+          The red "NEW" badge uses <strong>position: absolute</strong> with
+          <code>top: 12px; right: 12px;</code>. It is removed from normal flow
+          and placed precisely at the top-right corner of this container —
+          not of the page.
+        </p>
+      </div>
+
+      <p style="margin-top:16px; font-size:0.85rem; color:#666;">
+        ↑ The <strong>fixed header</strong> at the top and the
+        <strong>sticky navigation bar</strong> just below it also
+        demonstrate <code>position: fixed</code> and
+        <code>position: sticky</code> respectively — scroll the page to
+        observe both in action.
+      </p>
+    </section>
+
+    <hr class="section-divider" />
+
+    <!--
+         PART 3 — FLOAT & CLEAR
+         .main-content → float: left  (60% width)
+         .sidebar      → float: right (35% width)
+         .float-footer → clear: both
+
+         Without clear: both the footer would collapse behind the
+         floated columns because floats are taken out of normal flow
+         and their parent loses track of their height.
+          -->
+    <section id="part3">
+      <p class="section-label">Part 3</p>
+      <h2 class="section-title">Float &amp; Clear — Flow Manipulation</h2>
+
+      <div class="float-layout">
+
+        <!-- Main content — floats left -->
+        <div class="main-content">
+          <h3>Main Content (float: left)</h3>
+          <p>
+            This div uses <strong>float: left</strong>. It is removed from the
+            normal vertical stacking flow and pushed to the left edge of its
+            container. The sidebar fills the space to the right.
+          </p>
+          <p style="margin-top:10px;">
+            Floats were originally designed for text wrapping around images,
+            but were widely adopted for multi-column layouts before Flexbox
+            and Grid became available.
+          </p>
+        </div>
+
+        <!-- Sidebar — floats right -->
+        <div class="sidebar">
+          <h3>Sidebar (float: right)</h3>
+          <p>
+            <strong>float: right</strong> pushes this element to the right edge.
+            Both floated elements sit side by side on the same line.
+          </p>
+        </div>
+
+        <!-- Footer — MUST clear both floats -->
+        <footer class="float-footer">
+          ✓ Footer — clear: both — correctly placed below both floated columns
+        </footer>
+
+      </div><!-- /.float-layout -->
+    </section>
+
+    <hr class="section-divider" />
+
+    <!-- 
+         PART 4 — INTEGRATED MINI LAYOUT
+         All three concepts combined on one page:
+           ✓ Fixed header (top of page)
+           ✓ Sticky nav (below header)
+           ✓ Box model (Part 1 boxes above)
+           ✓ Absolute-positioned label (Part 2 container above)
+           ✓ Float-based two-column layout (Part 3 above)
+           ✓ Footer with clear: both
+         No Flexbox. No Grid. Only box model, position, and float.
+          -->
+    <section id="part4">
+      <p class="section-label">Part 4</p>
+      <h2 class="section-title">Integrated Mini Layout — All Concepts Combined</h2>
+
+      <p style="font-size:0.9rem; line-height:1.7; color:#555;">
+        The entire page <em>is</em> the integrated layout. Each scroll-able section
+        exercises one CSS concept, and the persistent fixed header plus sticky nav
+        ensure Part 2 positioning is always visible. The two-column float layout
+        in Part 3 is immediately above, with <code>clear: both</code> on its footer
+        completing the requirement. No Flexbox or Grid was used anywhere on this page.
+      </p>
+
+      <!-- Extra floated demo to reinforce Part 4 integration -->
+      <div class="float-layout" style="margin-top: 24px;">
+        <div class="main-content">
+          <div class="box" style="margin-bottom:0; border-color:#0f3460; padding:20px; position:relative;">
+            <span class="pos-label">HOT</span>
+            <h3>Box Model + Absolute Label</h3>
+            <p>
+              This content box combines <strong>box model</strong> styling
+              (padding, border, margin) with an absolutely-positioned label
+              anchored to its top-right corner — demonstrating Parts 1 &amp; 2
+              working together.
+            </p>
+          </div>
+        </div>
+
+        <div class="sidebar">
+          <h3>Sidebar Note</h3>
+          <p>
+            Float-based column. Part 3 applied inside the integrated layout.
+            The page footer below clears both floats.
+          </p>
+        </div>
+
+        <footer class="float-footer">
+          ✓ Integrated footer — clear: both — end of Part 4
+        </footer>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!--  footer -->
+  <footer class="page-footer">
+    LAB 4 — CSS Layout Control &nbsp;|&nbsp; Box Model · Positioning · Float &amp; Clear
+  </footer>
+
+</body>
+</html>
