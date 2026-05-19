@@ -1,1 +1,236 @@
+/* 
+   LAB 4: CSS Layout Control
+   Covers: Box Model | Positioning | Float & Clear
+    */
 
+/* ── Reset & Base ─────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --clr-bg:       #f4f1eb;
+  --clr-header:   #1a1a2e;
+  --clr-nav:      #16213e;
+  --clr-accent:   #e94560;
+  --clr-main:     #0f3460;
+  --clr-sidebar:  #533483;
+  --clr-footer:   #1a1a2e;
+  --clr-text:     #2d2d2d;
+  --clr-light:    #ffffff;
+  --font-body:    'Georgia', serif;
+  --font-head:    'Courier New', monospace;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  padding-top: 60px; /* offset for fixed header */
+}
+
+/* 
+   PART 2 — FIXED HEADER
+   position: fixed keeps it on screen during scroll
+   */
+.fixed-header {
+  position: fixed;        /* stays at top on scroll */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background-color: var(--clr-header);
+  color: var(--clr-light);
+  display: block;
+  line-height: 60px;
+  padding-left: 24px;
+  font-family: var(--font-head);
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  z-index: 1000;
+  border-bottom: 3px solid var(--clr-accent);
+}
+
+/* 
+   PART 2 — STICKY NAVIGATION BAR
+   position: sticky scrolls with page until it hits top: 0,
+   then sticks in place
+     */
+.sticky-nav {
+  position: sticky;       /* sticks once scrolled to top */
+  top: 0;
+  background-color: var(--clr-nav);
+  color: var(--clr-light);
+  padding: 12px 24px;
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  z-index: 900;
+  border-bottom: 2px solid var(--clr-accent);
+}
+
+.sticky-nav a {
+  color: var(--clr-light);
+  text-decoration: none;
+  margin-right: 24px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.sticky-nav a:hover {
+  opacity: 1;
+  color: var(--clr-accent);
+}
+
+/*  Page wrapper */
+.page-wrapper {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.section-label {
+  font-family: var(--font-head);
+  font-size: 0.7rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--clr-accent);
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-family: var(--font-head);
+  font-size: 1.3rem;
+  color: var(--clr-main);
+  margin-bottom: 20px;
+  border-left: 4px solid var(--clr-accent);
+  padding-left: 12px;
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px dashed #aaa;
+  margin: 48px 0;
+}
+
+
+.box {
+  background-color: var(--clr-light);
+  border: 3px solid var(--clr-main);  /* visible boundary */
+  padding: 24px;                       /* internal spacing */
+  margin-bottom: 20px;                 /* external spacing between boxes */
+  position: relative;                  /* needed for absolute badge inside */
+}
+
+.box h3 {
+  font-family: var(--font-head);
+  font-size: 1rem;
+  color: var(--clr-main);
+  margin-bottom: 8px;
+}
+
+.box p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Each box gets slightly different padding to show the effect */
+.box-1 { padding: 12px; border-color: var(--clr-main); }
+.box-2 { padding: 28px; border-color: var(--clr-accent); }
+.box-3 { padding: 44px; border-color: var(--clr-sidebar); }
+
+/* 
+   PART 2 — POSITIONING
+   .pos-container: relative → establishes coordinate origin
+   .pos-label:     absolute → anchored to .pos-container corner
+    */
+.pos-container {
+  position: relative;           /* coordinate origin for children */
+  border: 3px solid var(--clr-main);
+  padding: 20px;
+  background: var(--clr-light);
+  margin-top: 12px;
+}
+
+.pos-container p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #555;
+  max-width: 80%;
+}
+
+.pos-label {
+  position: absolute;           /* removed from normal flow */
+  top: 12px;                    /* 12px from container's top */
+  right: 12px;                  /* 12px from container's right */
+  background-color: var(--clr-accent);
+  color: var(--clr-light);
+  font-family: var(--font-head);
+  font-size: 0.65rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+
+.main-content {
+  float: left;            /* pulls element out of normal flow */
+  width: 60%;
+  background-color: var(--clr-light);
+  border: 3px solid var(--clr-main);
+  padding: 20px;
+}
+
+.sidebar {
+  float: right;           /* sits on right, other content wraps */
+  width: 35%;
+  background-color: #e8e4f9;
+  border: 3px solid var(--clr-sidebar);
+  padding: 20px;
+}
+
+.main-content h3,
+.sidebar h3 {
+  font-family: var(--font-head);
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+}
+
+.main-content p,
+.sidebar p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+.float-footer {
+  clear: both;            /* CRITICAL: forces footer below both floats */
+  background-color: var(--clr-footer);
+  color: var(--clr-light);
+  padding: 14px 20px;
+  font-family: var(--font-head);
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin-top: 0;          /* no gap needed; clear:both handles placement */
+  border-top: 3px solid var(--clr-accent);
+}
+
+/*
+   PART 4 — PAGE FOOTER (integrated layout)
+    */
+.page-footer {
+  clear: both;
+  background-color: var(--clr-footer);
+  color: var(--clr-light);
+  text-align: center;
+  padding: 24px;
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  margin-top: 40px;
+  border-top: 4px solid var(--clr-accent);
+}
