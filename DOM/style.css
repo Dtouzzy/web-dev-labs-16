@@ -1,1 +1,63 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
 
+.container {
+  background-color: #fff;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  text-align: center;
+  width: 350px;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+#scoreInput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+#calcBtn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+#calcBtn:hover {
+  background-color: #0056b3;
+}
+
+#results {
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  min-height: 50px;
+  font-size: 18px;
+}
+
+.grade-A { color: green; font-weight: bold; }
+.grade-B { color: #2e8b57; font-weight: bold; }
+.grade-C { color: orange; font-weight: bold; }
+.grade-D { color: #ff8c00; font-weight: bold; }
+.grade-F { color: red; font-weight: bold; }
+.error { color: red; font-weight: bold; }
